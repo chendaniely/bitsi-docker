@@ -55,6 +55,10 @@ RUN install2.r --error --skipinstalled \
 
 RUN Rscript -e "tinytex:::install_yihui_pkgs(); tinytex::tlmgr_install('adjustbox')"
 
+## Remove this comment to always bust the Docker cache at this step
+## https://stackoverflow.com/a/55621942/591574
+ADD https://github.com/rstudio/plumber/commits/ _docker_cache
+
 WORKDIR /srv/shiny-server/
 RUN git clone -b plumber https://github.com/chendaniely/bitsi.git bitsi-code && \
     chmod 777 -R bitsi-code && \
