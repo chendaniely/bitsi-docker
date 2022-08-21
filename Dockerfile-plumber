@@ -60,7 +60,7 @@ RUN Rscript -e "tinytex:::install_yihui_pkgs(); tinytex::tlmgr_install('adjustbo
 ADD https://github.com/rstudio/plumber/commits/ _docker_cache
 
 WORKDIR /srv/shiny-server/
-RUN git clone -b plumber https://github.com/chendaniely/bitsi.git bitsi-code && \
+RUN git clone https://github.com/chendaniely/bitsi.git bitsi-code && \
     chmod 777 -R bitsi-code && \
     ln -s /srv/shiny-server/bitsi-code/pictaACTinfographics/shiny bitsi
 
